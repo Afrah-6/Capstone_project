@@ -3,6 +3,7 @@ package stepdefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import io.cucumber.java.en.Given;
@@ -10,7 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class dropdown {
-	WebDriver driver = DriverFactory.getDriver();
+	WebDriver driver = new ChromeDriver();
     Actions actions = new Actions(driver);
 	
 
