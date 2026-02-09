@@ -17,7 +17,7 @@ public class dropdown {
 
 @Given("User is on home page")
 public void user_is_on_home_page() {
-	 driver.get("https://www.yourbooksite.com");
+	 driver.get("https://www.bookswagon.com");
 }
 
 @When("User clicks on Books")
