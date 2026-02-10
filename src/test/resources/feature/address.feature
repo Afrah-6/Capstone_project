@@ -10,15 +10,15 @@ Feature: Shopping Cart and Address Management
 
 
 
-  Scenario: Navigate to cart and fill out a new delivery address
+Scenario: Navigate to cart and fill out a new delivery address
 
-    Given the user is on the home page
+Given the user is on the home page
 
-    When the user navigates to the cart
+When the user navigates to the cart
 
-    And the user clicks the Buy button
+And the user clicks the Buy button
 
-    Then the user fills in the delivery address details:
+Then the user fills in the delivery address details:
 
       | Full Name    | sachin                      |
 
@@ -38,6 +38,6 @@ Feature: Shopping Cart and Address Management
 
       | Mobile       | 9876543210                  |
 
-    And the user saves the address
+ And the user saves the address
 
-    Then the order should be processed successfully
+Then the order should be processed successfully
