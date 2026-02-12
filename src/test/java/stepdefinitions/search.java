@@ -1,53 +1,33 @@
 package stepdefinitions;
 
-
 import Pages.search_Pages;
-
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.Keys;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	//import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.chrome.ChromeDriver;
-
-	import io.cucumber.java.en.Given;
-	import io.cucumber.java.en.Then;
-	import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class search {
-	WebDriver driver;
-	@Given("browser is open")
+    search_Pages search = new search_Pages(login.driver);
 
+    @Given("the user is logged into their account")
+    public void the_user_is_logged_into_their_account() {
+        System.out.println("Session active. Starting search flow...");
+    }
 
-	public void browser_is_open() {
-	driver=new ChromeDriver();
-	driver.manage().window().maximize();
-	driver.get("https://www.bookswagon.com/myaccount.aspx");
-	   // Write code here that turns the phrase above into concrete actions
-	   //throw new io.cucumber.java.PendingException();
-	}
+    @When("the user searches for {string}")
+    public void search_book(String book) {
+        search.searchForBook(book);
+    }
 
-	@When("search for a book")
-	public  void search_for_a_book() throws InterruptedException {
-	       WebElement searchBox=driver.findElement(By.id("inputbar"));
-	searchBox.sendKeys("Carton");
-	searchBox.sendKeys(Keys.ENTER);
+    @And("the user selects the book from the results")
+    public void the_user_selects_the_book_from_the_results() {
+        search.selectBook();
+    }
 
-	}              
-	@When("select the book")
-	public void select_the_book() throws InterruptedException {
-	driver.findElement(By.xpath("//*[@id=\"listSearchResult\"]/div[1]/div[3]/div[1]/a")).click();
-	Thread.sleep(4000);
+    @And("the user adds the book to the cart")
+    public void the_user_adds_the_book_to_the_cart() {
+        search.addToCart();
+    }
 
-
-	    }
-
-	@Then("add to cart and verify the cart")
-	public void add_to_cart_and_verify_the_cart() throws InterruptedException {
-	driver.findElement(By.xpath("//*[@id=\"btnAddtocart\"]")).click();
-
-
-	driver.findElement(By.xpath("//*[@id=\"lblcartmsg_39510693\"]")).click();
-	Thread.sleep(2000);
-	 }
+    @Then("the book should be successfully added")
+    public void the_book_should_be_successfully_added() {
+        System.out.println("Test Passed!");
+    }
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ContactusPage {
 	
-	    WebDriver driver = new ChromeDriver();;
+	    WebDriver driver = stepdefinitions.login.driver;
 
 	    // Locators for the Contact Us form fields
 	   private By nameField = By.id("ctl00_phBody_ContactUs_txtFirstName");
@@ -23,7 +23,7 @@ public class ContactusPage {
 	   {
 	 
 	 driver.manage().window().maximize();
-	 driver.navigate().to("https://www.bookswagon.com/");
+	 
 	   }
 	   
 	   public void clickcontactus()

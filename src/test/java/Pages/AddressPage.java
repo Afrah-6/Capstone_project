@@ -16,11 +16,11 @@ public class AddressPage {
 	 
 	    public AddressPage(WebDriver driver) {
 	        this.driver = driver;
+	        PageFactory.initElements(driver, this);
 	       
-	        org.openqa.selenium.support.PageFactory.initElements(driver, this);
 	    }
 	    
-	    @FindBy(id = "ctl00_CPBody_txtNewRecipientName")
+	    @FindBy(name = "ctl00$cpBody$txtNewRecipientName")
 	    WebElement name;
 	    
 	    @FindBy(id="ctl00_cpBody_txtNewCompanyName")
@@ -57,7 +57,8 @@ public class AddressPage {
 	    WebElement saveButton;
 	       
 
-	    public void fillAddressForm() {
+	    public void fillAddressForm() throws InterruptedException {
+	    	//Thread.sleep(2000);
 	        name.sendKeys("sachin");
 	        companyname.sendKeys("tata consultancy services");
 	        address.sendKeys("123 Main Street, Bangalore");

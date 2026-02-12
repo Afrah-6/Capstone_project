@@ -21,16 +21,17 @@ public class LoginPage {
         this.driver = driver;
 
     }
-    public void openLoginPage() {
+    public void openLoginPage() throws InterruptedException {
 
         driver.get("https://www.bookswagon.com/");
-
+        Thread.sleep(1000);
         driver.findElement(loginLink).click();
 
     }
 
-  public void enterEmail(String email) {
-
+  public void enterEmail(String email) throws InterruptedException {
+	  
+	  Thread.sleep(1000);
         driver.findElement(emailField).sendKeys(email);
 
     }
@@ -42,8 +43,8 @@ public class LoginPage {
         driver.findElement(passwordField).sendKeys(password);
 
     }
-     public void clickLogin() {
-
+     public void clickLogin() throws InterruptedException {
+    	 Thread.sleep(1000);
         driver.findElement(loginButton).click();
 
     }

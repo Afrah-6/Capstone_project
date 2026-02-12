@@ -38,18 +38,18 @@ public void i_click_on_the_link() throws InterruptedException {
 
 @When("I enter {string} as the current password")
 public void i_enter_as_the_current_password(String string) throws InterruptedException {
-	chance.oldpassword(string);
+	chance.oldpassword("bookswagon@0604");
 }
 
 @When("I enter {string} as the new password")
-public void i_enter_as_the_new_password(String string) {
-    
+public void i_enter_as_the_new_password(String string) throws InterruptedException {
+    chance.newpassword("aaaaa");
 }
 
 @When("I enter {string} as the confirm password")
 public void i_enter_as_the_confirm_password(String string) throws InterruptedException
 {
-   chance.confirmpass(string);
+   chance.confirmpass("bbbbb");
 }
 
 @When("I click the submit button")

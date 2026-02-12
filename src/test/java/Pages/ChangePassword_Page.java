@@ -9,18 +9,18 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ChangePassword_Page {
 
-	By button = By.className("usernametext");
+	By button = By.id("ctl00_lblUser");
     By cptext = By.linkText("Change Password");
-	By oldpass = By.id("ctl00_phBody_ChangePassword_txtCurPwd");
+	By oldpass = By.name("ctl00$phBody$ChangePassword$txtCurPwd");
 	By npass = By.id("ctl00_phBody_ChangePassword_txtNewPassword");
 	By conpass = By.id("ctl00_phBody_ChangePassword_txtConfirmPwd");
-	By btn = By.id("ctl00_phBody_ChangePassword_imgSubmit");
+	By btn = By.id("ctl00_phBody_ChangePassword_imgSubmit");  
 	WebDriver driver ;
 	
 	public void home() 
 	{
-		driver = new ChromeDriver();
-		driver.get("https://www.bookswagon.com/");
+		driver =stepdefinitions.login.driver;
+		
 	}
 	public void oldpassword(String string) throws InterruptedException 
 	{
@@ -28,7 +28,7 @@ public class ChangePassword_Page {
 		Thread.sleep(2000);
 	}
 	public void newpassword(String string) throws InterruptedException {
-		driver.findElement(npass).sendKeys("aaaaaaa");
+		driver.findElement(npass).sendKeys(string);
 		Thread.sleep(2000);
 	}
 	public void confirmpass(String string) throws InterruptedException {
@@ -51,6 +51,8 @@ public class ChangePassword_Page {
 	{
 		driver.findElement(cptext).click();
 		Thread.sleep(20000);
+		
+		driver.quit();
 	}
 
 }
